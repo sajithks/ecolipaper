@@ -117,7 +117,7 @@
 % *** GRAPHICS RELATED PACKAGES ***
 %
 \ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
+   \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
   % \graphicspath{{../pdf/}{../jpeg/}}
   % and their extensions so you won't have to specify these with
@@ -160,7 +160,7 @@
 
 % *** MATH PACKAGES ***
 %
-%\usepackage[cmex10]{amsmath}
+\usepackage[cmex10]{amsmath}
 % A popular package from the American Mathematical Society that provides
 % many useful and powerful commands for dealing with mathematics. If using
 % it, be sure to load this package with the cmex10 option to ensure that
@@ -484,14 +484,108 @@ IEEEtran, journal, \LaTeX, paper, template.
 
 Time-lapse imaging of growing bacterial cells are important both to answer fundamental biological questions related to the bacterial cell cycle as well as to study response to changes in growth condition due to changes in nutrients or antibiotics. Based on the growth conditions and imaging modalities, various automated image segmentation and tracking packages have been created. MicrobeTracker \cite {sliusarenkohigh2011} was designed to segment phase contrast images and detect fluorescent spots in a parallel fluorescent channel. Schnitzcells was specifically designed to analyze fluorescent time-lapse images of E. coli grown on agarose \cite  {youngmeasuring2012}, and MAMLE \cite {chowdhurycell2013} was also designed to analyze E. coli from phase contrast and fluorescent images.
 
+Most image segmentation methods rely on raw pixel intensities to get an initial segmentation result, and further refined segmentation depends on this initial segmentation. MicrobeTracker \cite {sliusarenkohigh2011} finds an initial segmentation using Otsu’s thresholding method \cite {otsuthreshold1979} followed by edge detection and watershed segmentation. In the final step, active contours are applied to refine object boundaries. MicrobeTracker needs manual correction of the first frame to get satisfactory segmentation results for time-lapse images. It is difficult to analyze large image sequences in MicrobeTracker due to its inherent memory problems, and it is often necessary to modify the code for practical applications. MAMLE \cite {chowdhurycell2013} uses range filtering to find an initial segmentation result, followed by multi-scale edge detection and a maximum likelihood classification to correct over- and under- segmentation. In Schnitzcells \cite {youngmeasuring2012}, initial segmentation is achieved by edge detection followed by post processing to correct segmentation errors. 
 
+Phase contrast images of E. coli exhibit high-intensity regions inside cellular regions comparable to, or even brighter than, regions between cells. Relying on raw intensity therefore leads to over- and under-segmentation at the same time. The problem becomes amplified when trying to track cells over time. Even a 1\% error in detection of cells in every frame renders the cell lineage useless for further analysis if many cells are tracked over a long time.
 
+Previously published cell tracking algorithms rely on model evolution, where a model of the cell is evolved over time using techniques such as active contour models \cite {zimmersegmentation2002} or level sets \cite {dzyubachykadvanced2010}, and tracking by detection \cite {bisereliable2011}. Tracking by detection involves two stages; segmentation and tracking. Sometimes both these steps are combined together to get final tracking result \cite {jugoptimal2014}. 
 
-\subsection{Subsection Heading Here}
-Subsection text here.
+In this work, we use tracking by detection, i.e., separate the segmentation and tracking problems and solve them separately, followed by a quality control and refinement step where some of the segmentation and tracking errors are corrected. Cell segmentation is done using our novel Curvature Based Approach, hereafter called as CBA, and tracking is done using a state-of-the-art tracking algorithm \cite {magnussonglobal2014}. In the following sections we present our segmentation methodology and compare it with that of MicrobeTracker and MAMLE on phase contrast as well as fluorescence images, from our own and previously published experiments. After segmentation, we track the cells through the time-lapse sequence and then perform post tracking segmentation correction to get a final segmentation result. Finally, we show how the combined segmentation and tracking approach can be applied to quantify differences in cell growth rate under different experimental conditions.
+
+\section{Methodology}
+\subsection{Image Acquisition}
+The bacterial cell colonies in our own experiments were grown on a specially designed microfluidic device in Polydimethylsiloxane(PDMS)\cite {ullmanhigh2012} with a growth chamber, a “trap”, of size 40 x 40 x 0.9 μm, which is open to growth media exchange at two ends.  The cells grow in a single layer and as the size of the microcolony gets larger than the trap, excess cells leave the trap through the outlet, thus maintaining the colony size of approximately 200 cells nearly constant throughout the experiment. Images were captured using an inverted microscope fitted with separate cameras for phase contrast and fluorescent channels. The microscope is equipped with a TIR based hardware autofocus that keeps the cells in focus over days. 51 traps can be monitored in parallel and growth conditions can be changed in 2s \cite{hammarlac2012} using computer controlled pumps. Phase contrast images were acquired every 30 or 60 seconds at 125 ms exposure time using CFW-1312M (Scion Corporation) and fluorescent images were acquired every 60 seconds using an EMCCD camera (Andor Technologies) and DPSS laser excitation at 514 nm (Coherent). The MG1655 bacteria are grown in M9 media supplemented with glucose or glycerol for growth rate comparison and amino acids. The fluorescent cells express turboRFP constitutively from a chromosomally integrated promoter. Bacterial cell colonies from the MicrobeTracker and Schnitzcells datasets were grown as described in \cite {sliusarenkohigh2011} and \cite {youngmeasuring2012}.
 
 % needed in second column of first page if using \IEEEpubid
 %\IEEEpubidadjcol
+\subsection{Image Preprocessing }
+The input images are of size 1360x1024 pixels and contain the cell colony as well as some regions of the microfluidic device. We aligned the image sequences based on image cross correlation to account for the stage repositioning inaccuracy that occurred when cycling though different traps during the image acquisition process. The aligned images were manually cropped to the cellular region. Since the stack was aligned, manual selection on the first frame was enough to crop the entire image stack.
+
+\subsection{Curvature Based Contrast Enhancement }
+In the input phase contrast images, the E. coli cells appear as dark rod-shaped objects on a brighter background \ref {figure 2a}. The E. coli colony is tightly packed so that the intensity values between the cells are often similar to those inside the cells, and it is common to see high intensity regions inside cells, meaning that any purely intensity based approach for segmentation will result in erroneous output. However, we have observed that there is a general intensity variation that is occurring between the cells. To detect these regions of intensity variation, we used the separation of principal curvature of the intensity surface \cite {willmoreintroduction1959}. The regions were thereafter separated based on the minimal curvature as described below. 
+
+The curvature was found using techniques from differential geometry \cite  {willmoreintroduction1959}. Consider a 1D case, where \textbf{r} is a curve as shown in ref Figure 1 and p and q are two points on the curve. We know that the gradient of the curve with respect to the arc length gives the tangent, t, at that point, i.e., t = r’. The rate of change of tangent direction as we move along the curve is the curvature of the curve, i.e., t’ = kn, where n is the unit normal vector to the curve that is perpendicular to the tangent and k is the curvature. So we have r” = kn. This shows that the curvature at a point is the second derivative of the curve at that point.  The sign of the curvature is determined by whether the slope is increasing or decreasing. Here we can see that it is negative in the maximum point and positive in the minimum point as shown by kp and kq (arrow pointing upward as positive and arrow pointing downward as negative).
+\begin{figure}[t ]
+	\begin{center}
+		\includegraphics[width=45mm]{fig1cuve.png}
+		\caption{$k_p$ is the curvature at point \textit{p} with negative value and $k_q$ is the curvature at point \textit{q} with positive value for the curve \textbf{r}}
+		\label{fig:curve}
+	\end{center}    
+\end{figure}
+We extended the same idea to the 2D case. Consider a gray scale image as a surface in 3D with (x,y) being the spatial coordinates and I(x,y) being the gray level intensity at that particular spatial location. Following a similar convention as for the 1D case, the image surface is assumed to be continuous with partial derivatives existing at least to order 2 \cite {willmoreintroduction1959}. Here, we first made the image smooth by convolving it with a Gaussian kernel. We set the standard deviation of the Gaussian to 1.4 pixels, which is approximately 1/10th the width of the E. coli cells, found experimentally.
+
+
+A particular point on the image surface has an infinite number of curves passing through it. Out of all these curves there are two curves that are particularly interesting. They are the curve with maximum curvature and the curve with minimum curvature. These curves are orthogonal to each other. These curvatures are equal to the eigenvalues of the Hessian matrix \cite {thorpeelementary1979}. The Hessian is the second derivative matrix of the image, calculated for every pixels, which is created as H = [[Ixx, Ixy][Ixy Iyy]], where Ixx and Iyy are the 2nd derivatives of the image taken in the x- and y-directions, and Ixy is the derivative of the image taken first in the x-direction and then in the y-direction, using discrete approximations \cite{woodfordnumerical2012}. The eigenvalues can be calculated as follows 
+
+
+\begin{equation}
+k_{1,2} = \frac{trace(H)\pm \sqrt{trace(H)^2 -4\times det(H)} }{2}
+\end{equation}
+Here, k1 and k2 are the principal curvatures with k1<k2.  In phase contrast images of E. coli, consider two rod shaped cells lying parallel to each other, the cells are dark and the region between the cells is bright. When we calculate principal curvatures in region between the cells, one is perpendicular to the major axis of the cell and its curvature is negative and the other one parallel to the major axis of the cell is zero or small value near zero (positive or negative depending on local intensity values). Taking the lowest value of the two gives the curve with the greatest curvature magnitude in the negative direction at that point. In this way we can enhance the contrast of the image in bright background regions between cells while avoiding enhancing variations inside the darker cell regions, as shown in Figure \ref{fig:contrastenhance}. 
+
+\begin{figure}[h]
+	\begin{center}
+		\begin{tabular}{ccc}
+			%\hline
+			\includegraphics[width=2.5cm]{orimgmark.png}&\includegraphics[width=2.5cm]{eigenmark.png}&\includegraphics[width=2.5cm]{combineplots.png}
+			\\
+			a) & b) & c)
+		\end{tabular}
+		\caption{a) Original input image, b) curvature based contrast enhanced image and c) plot showing pixel values from the same row from a (red line), and b (blue line). Note that the plotted pixel values in c are inverted for display.}\label{fig:contrastenhance}
+	\end{center}
+\end{figure}
+
+
+\subsection{Object Segmentation}
+We used the presented curvature-based enhancement step to enhance the contrast in the images. Next, we segmented out the cells using a repeated thresholding approach. The contrast-enhanced image is an image with floating point values. In order to make the threshold computation easier, we normalized the image and quantized it to 256 intensity levels . A single threshold value was not sufficient to separate all individual cells, and watershed segmentation resulted in ambiguities in the positioning of the edges of the cells. We therefore used multiple thresholds and prior knowledge about the cell area and the cell shape, in the form of major and minor axes lengths,  to filter out the cells from background regions. 
+
+For each threshold level, the image was labeled and each object fitted with an ellipse. The ellipse parameters are found using moments \cite{burgerprinciples2009} as follows. We create a matrix M
+  
+$M = \begin{bmatrix}
+m_{02}&m_{11} \\
+m_{11}&m_{20}
+\end{bmatrix}$
+
+\begin{equation}
+\text{major axis} = 4 \times \sqrt{\frac{\lambda_1}{m_{00}}}
+\end{equation}
+
+\begin{equation}
+\text{minor axis} = 4 \times \sqrt{\frac{\lambda_2}{m_{00}}}
+\end{equation}
+
+$\lambda_1$ and $\lambda_2$ are eigenvalues of moment matrix M,  $m_{pq}$ is the p, $q^{th}$ central moment in x and y axis respectively.  $m_{00}$ is $0^{th}$ central moment (area of the object). 
+
+The ellipse parameters of individual objects were analyzed as follows; the objects were filtered based on the major and minor axis length to remove very large and very small regions. The major and minor axes lengths are given as parameter to the algorithm. For each object, a weight is calculated as follows and assigned to the object.
+
+\begin{equation}
+\textit{weight} = 0.5 \times \textit{residual area ratio} + 0.5 \times convexity 
+\end{equation}
+
+where the residual area ratio (RAR) is the ratio found as
+
+\begin{equation}
+\textit{RAR} = \frac{\textit{min(area, ellipse area) }}{\textit{max( area, ellipse area)}}  
+\end{equation}
+
+and convexity
+
+\begin{equation}
+\textit{convexity} = \frac{\textit{ area }}{\textit{area of convex hull of object}}  
+\end{equation}
+
+Ellipse area is found as
+
+\begin{equation}
+\textit{Ellipse area} = \frac{ \pi \times \textit{ major axis }\times \textit{minor axis}}{4}  
+\end{equation}
+
+From a computational point of view it is time-consuming to apply a threshold at all the 255 intensity levels and analyze the size and shape of every binary object present in the image. We have already seen that the cellular regions exhibit higher intensity values and edges between cells exhibit lower intensity values on the contrast-enhanced image. Thus we made the assumption that the histogram is bimodal, with the largest peak representing object and background pixels, while the smaller peak represents edges. We therefore started our repeated thresholding at the intensity value at the local minimum of the histogram (assuming this is well below the intensity of the cells), and set the ending threshold as the intensity at the largest peak. These values may change depending on the dataset, but proved robust on the four different datasets evaluated here.
+
+
+
+
+
 
 \subsubsection{Subsubsection Heading Here}
 Subsubsection text here.

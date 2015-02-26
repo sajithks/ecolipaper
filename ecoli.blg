@@ -8,17 +8,17 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: sample.bib
-You're missing a field name---line 206 of file sample.bib
+You're missing a field name---line 222 of file sample.bib
  :   
  :   %author = {B. Bleak and B. Bonsai},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 255 of file sample.bib
+You're missing a field name---line 271 of file sample.bib
  : 
  : %  author = {A. Uthor and B. Rutus},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 264 of file sample.bib
+You're missing a field name---line 280 of file sample.bib
  : 
  : %  author = {A. K. Jain},
 (Error may have been on previous line)
@@ -28,47 +28,51 @@ I'm skipping whatever remains of this entry
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 Name 6 in "J. W. Young and J. C. W. Locke and A. Altinok, N. Rosenfeld and T. Bacarian and P. S. Swain and E. Mjolsness, and M. B. Elowitz" has a comma at the end for entry youngmeasuring2012
 while executing---line 2411 of file IEEEtran.bst
+Too many commas in name 1 of "M. Jorge Cardoso, Ivor Simpson, Tal Arbel, Doina Precup, Annemie Ribbens a" for entry jugoptimal2014
+while executing---line 2411 of file IEEEtran.bst
+Too many commas in name 1 of "M. Jorge Cardoso, Ivor Simpson, Tal Arbel, Doina Precup, Annemie Ribbens a" for entry jugoptimal2014
+while executing---line 2411 of file IEEEtran.bst
 
 Done.
-You've used 6 entries,
+You've used 18 entries,
             4024 wiz_defined-function locations,
-            847 strings with 8393 characters,
-and the built_in function-call counts, 4712 in all, are:
-= -- 375
-> -- 145
-< -- 29
-+ -- 76
-- -- 30
-* -- 233
-:= -- 699
-add.period$ -- 12
-call.type$ -- 6
-change.case$ -- 5
-chr.to.int$ -- 57
-cite$ -- 6
-duplicate$ -- 349
-empty$ -- 354
-format.name$ -- 36
-if$ -- 1083
+            914 strings with 10638 characters,
+and the built_in function-call counts, 12767 in all, are:
+= -- 1026
+> -- 360
+< -- 68
++ -- 187
+- -- 75
+* -- 579
+:= -- 1887
+add.period$ -- 38
+call.type$ -- 18
+change.case$ -- 15
+chr.to.int$ -- 135
+cite$ -- 18
+duplicate$ -- 981
+empty$ -- 1061
+format.name$ -- 90
+if$ -- 2987
 int.to.chr$ -- 0
-int.to.str$ -- 6
-missing$ -- 64
-newline$ -- 41
-num.names$ -- 6
-pop$ -- 156
+int.to.str$ -- 18
+missing$ -- 177
+newline$ -- 77
+num.names$ -- 20
+pop$ -- 444
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 369
+skip$ -- 1031
 stack$ -- 0
-substring$ -- 164
-swap$ -- 284
-text.length$ -- 10
+substring$ -- 414
+swap$ -- 761
+text.length$ -- 23
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 6
+type$ -- 18
 warning$ -- 0
-while$ -- 17
-width$ -- 7
-write$ -- 79
-(There were 4 error messages)
+while$ -- 45
+width$ -- 20
+write$ -- 186
+(There were 6 error messages)
