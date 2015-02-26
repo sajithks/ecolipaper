@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.5.8)  26 FEB 2015 09:23
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.5.8)  26 FEB 2015 18:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -201,7 +201,38 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \mathdisplay@stack=\toks20
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
-) (./ecoli.aux)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen136
+\captionmargin@=\dimen137
+\captionwidth=\dimen138
+\caption@tempdima=\dimen139
+\caption@indent=\dimen140
+\caption@parindent=\dimen141
+\caption@hangindent=\dimen142
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+)
+\c@KVtest=\count107
+\sf@farskip=\skip47
+\sf@captopadj=\dimen143
+\sf@capskip=\skip48
+\sf@nearskip=\skip49
+\c@subfigure=\count108
+\c@subfigure@save=\count109
+\c@lofdepth=\count110
+\c@subtable=\count111
+\c@subtable@save=\count112
+\c@lotdepth=\count113
+\sf@top=\skip50
+\sf@bottom=\skip51
+)
+(./ecoli.aux)
 \openout1 = `ecoli.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 359.
@@ -220,16 +251,16 @@ LaTeX Font Info:    ... okay on input line 359.
 -- Lines per column: 58 (exact).
 (/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count107
-\scratchdimen=\dimen136
+\scratchcounter=\count114
+\scratchdimen=\dimen144
 \scratchbox=\box30
-\nofMPsegments=\count108
-\nofMParguments=\count109
+\nofMPsegments=\count115
+\nofMParguments=\count116
 \everyMPshowfont=\toks21
-\MPscratchCnt=\count110
-\MPscratchDim=\dimen137
-\MPnumerator=\count111
-\makeMPintoPDFobject=\count112
+\MPscratchCnt=\count117
+\MPscratchDim=\dimen145
+\MPnumerator=\count118
+\makeMPintoPDFobject=\count119
 \everyMPtoPDFconversion=\toks22
 ) (/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -279,121 +310,230 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 447.
+(Font)              <7> on input line 496.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 447.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 447.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 447.
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
+(Font)              <5> on input line 496.
+
+[1{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+
+]
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ú in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ù in font ptmr7t!
-Missing character: There is no Œ in font ptmr7t!
-Missing character: There is no º in font ptmr7t!
 
-Underfull \hbox (badness 3078) in paragraph at lines 497--498
+Underfull \hbox (badness 3078) in paragraph at lines 504--505
 []\OT1/ptm/m/n/10 The bac-te-rial cell colonies in our own ex-per-i-ments
  []
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 498.
-[1{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-
-
-]
-
-LaTeX Warning: Reference `figure 2a' on page 2 undefined on input line 505.
-
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ù in font ptmr7t!
-<fig1cuve.png, id=10, 316.5426pt x 174.4116pt>
+<fig1cuve.png, id=11, 316.5426pt x 174.4116pt>
 File: fig1cuve.png Graphic file (type png)
  <use fig1cuve.png>
-Package pdftex.def Info: fig1cuve.png used on input line 510.
-(pdftex.def)             Requested size: 128.0374pt x 70.54848pt.
+Package pdftex.def Info: fig1cuve.png used on input line 517.
+(pdftex.def)             Requested size: 199.16928pt x 109.7415pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 511.
+(Font)              <8> on input line 518.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 518.
 
-<orimgmark.png, id=12, 349.7868pt x 347.8596pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2 <./fig1cuve.png>] <orimgmark.png, id=24, 349.7868pt x 347.8596pt>
 File: orimgmark.png Graphic file (type png)
  <use orimgmark.png>
-Package pdftex.def Info: orimgmark.png used on input line 530.
-(pdftex.def)             Requested size: 71.13188pt x 70.73842pt.
+Package pdftex.def Info: orimgmark.png used on input line 543.
+(pdftex.def)             Requested size: 85.82927pt x 85.35826pt.
 
-<eigenmark.png, id=13, 346.896pt x 346.896pt>
+<eigenmark.png, id=25, 346.896pt x 346.896pt>
 File: eigenmark.png Graphic file (type png)
  <use eigenmark.png>
-Package pdftex.def Info: eigenmark.png used on input line 530.
-(pdftex.def)             Requested size: 71.13188pt x 71.13pt.
+Package pdftex.def Info: eigenmark.png used on input line 543.
+(pdftex.def)             Requested size: 85.35814pt x 85.35826pt.
 
-<combineplots.png, id=14, 565.1514pt x 382.3083pt>
+<combineplots.png, id=26, 565.1514pt x 382.3083pt>
 File: combineplots.png Graphic file (type png)
  <use combineplots.png>
-Package pdftex.def Info: combineplots.png used on input line 530.
-(pdftex.def)             Requested size: 71.13188pt x 48.1151pt.
+Package pdftex.def Info: combineplots.png used on input line 545.
+(pdftex.def)             Requested size: 126.17911pt x 85.35826pt.
+
+[3 <./orimgmark.png> <./eigenmark.png> <./combineplots.png>] [4]
+<correcttrack.png, id=37, 286.1892pt x 252.2223pt>
+File: correcttrack.png Graphic file (type png)
+ <use correcttrack.png>
+Package pdftex.def Info: correcttrack.png used on input line 720.
+(pdftex.def)             Requested size: 113.81102pt x 100.30214pt.
+
+<singleerrtrack.png, id=38, 271.0125pt x 249.5724pt>
+File: singleerrtrack.png Graphic file (type png)
+ <use singleerrtrack.png>
+Package pdftex.def Info: singleerrtrack.png used on input line 720.
+(pdftex.def)             Requested size: 113.81102pt x 104.80826pt.
+
+[5 <./correcttrack.png> <./singleerrtrack.png>]
+<fig3edrgb.png, id=44, 2200.22pt x 3349.51375pt>
+File: fig3edrgb.png Graphic file (type png)
+ <use fig3edrgb.png>
+Package pdftex.def Info: fig3edrgb.png used on input line 738.
+(pdftex.def)             Requested size: 213.39566pt x 324.85133pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[2 <./fig1cuve.png>] (./ecoli.bbl
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ì in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ì in font ptmr7t!
+<fig4ed.png, id=45, 3861.42625pt x 3707.8525pt>
+File: fig4ed.png Graphic file (type png)
+ <use fig4ed.png>
+Package pdftex.def Info: fig4ed.png used on input line 748.
+(pdftex.def)             Requested size: 213.39566pt x 204.86604pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<phasdat1areadist.png, id=46, 535.5207pt x 440.1243pt>
+File: phasdat1areadist.png Graphic file (type png)
+
+<use phasdat1areadist.png>
+Package pdftex.def Info: phasdat1areadist.png used on input line 760.
+(pdftex.def)             Requested size: 113.39923pt x 93.19441pt.
+
+<phasdat2areadist.png, id=47, 535.5207pt x 440.1243pt>
+File: phasdat2areadist.png Graphic file (type png)
+
+<use phasdat2areadist.png>
+Package pdftex.def Info: phasdat2areadist.png used on input line 760.
+(pdftex.def)             Requested size: 113.39923pt x 93.19441pt.
+
+<phasdat3areadist.png, id=48, 535.5207pt x 440.1243pt>
+File: phasdat3areadist.png Graphic file (type png)
+
+<use phasdat3areadist.png>
+Package pdftex.def Info: phasdat3areadist.png used on input line 762.
+(pdftex.def)             Requested size: 113.39923pt x 93.19441pt.
+ <fluoareadist.png, id=49, 543.4704pt x 440.1243pt>
+File: fluoareadist.png Graphic file (type png)
+
+<use fluoareadist.png>
+Package pdftex.def Info: fluoareadist.png used on input line 762.
+(pdftex.def)             Requested size: 113.39923pt x 91.83112pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<phasdat1fscorecumul.png, id=50, 575.2692pt x 445.9059pt>
+File: phasdat1fscorecumul.png Graphic file (type png)
+
+<use phasdat1fscorecumul.png>
+Package pdftex.def Info: phasdat1fscorecumul.png used on input line 773.
+(pdftex.def)             Requested size: 110.11862pt x 85.35826pt.
+
+<phasdat2fscorecumul.png, id=51, 575.2692pt x 445.9059pt>
+File: phasdat2fscorecumul.png Graphic file (type png)
+
+<use phasdat2fscorecumul.png>
+Package pdftex.def Info: phasdat2fscorecumul.png used on input line 773.
+(pdftex.def)             Requested size: 110.11862pt x 85.35826pt.
+
+<phasdat3fscorecumul.png, id=52, 575.2692pt x 445.9059pt>
+File: phasdat3fscorecumul.png Graphic file (type png)
+
+<use phasdat3fscorecumul.png>
+Package pdftex.def Info: phasdat3fscorecumul.png used on input line 775.
+(pdftex.def)             Requested size: 110.11862pt x 85.35826pt.
+
+<fluofscorecumul.png, id=53, 575.2692pt x 445.9059pt>
+File: fluofscorecumul.png Graphic file (type png)
+
+<use fluofscorecumul.png>
+Package pdftex.def Info: fluofscorecumul.png used on input line 776.
+(pdftex.def)             Requested size: 110.11862pt x 85.35826pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<timingrgb.png, id=54, 1467.4825pt x 1184.425pt>
+File: timingrgb.png Graphic file (type png)
+ <use timingrgb.png>
+Package pdftex.def Info: timingrgb.png used on input line 794.
+(pdftex.def)             Requested size: 213.39566pt x 172.23422pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6 <./fig3edrgb.png (PNG copy)>]
+<correcttrack2.png, id=59, 2173.11874pt x 1598.97375pt>
+File: correcttrack2.png Graphic file (type png)
+
+<use correcttrack2.png>
+Package pdftex.def Info: correcttrack2.png used on input line 805.
+(pdftex.def)             Requested size: 213.39566pt x 157.00334pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[7 <./fig4ed.png (PNG copy)> <./phasdat1areadist.png> <./phasdat2areadist.png> 
+<./phasdat3areadist.png> <./fluoareadist.png> <./phasdat1fscorecumul.png> <./ph
+asdat2fscorecumul.png> <./phasdat3fscorecumul.png> <./fluofscorecumul.png> <./t
+imingrgb.png (PNG copy)>] <growthrateed.png, id=72, 2028.57875pt x 1597.97pt>
+File: growthrateed.png Graphic file (type png)
+
+<use growthrateed.png>
+Package pdftex.def Info: growthrateed.png used on input line 817.
+(pdftex.def)             Requested size: 113.39923pt x 89.31502pt.
+ <histoed.png, id=73, 2036.60875pt x 1662.21pt>
+File: histoed.png Graphic file (type png)
+
+<use histoed.png>
+Package pdftex.def Info: histoed.png used on input line 817.
+(pdftex.def)             Requested size: 113.39923pt x 92.55049pt.
+ <lineagebothed.png, id=74, 2051.665pt x 1597.97pt>
+File: lineagebothed.png Graphic file (type png)
+
+<use lineagebothed.png>
+Package pdftex.def Info: lineagebothed.png used on input line 819.
+(pdftex.def)             Requested size: 113.39923pt x 88.31532pt.
+ (./ecoli.bbl
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ì in font ptmr7t!
 Missing character: There is no √ in font ptmr7t!
 Missing character: There is no º in font ptmr7t!
- [3 <./orimgmark.png> <./eigenmark.png> <./combineplots.png>]) [4
+ [8 <./correcttrack2.png (PNG copy)> <./growthrateed.png (PNG copy)> <./histoed
+.png (PNG copy)> <./lineagebothed.png (PNG copy)>]) [9
 
-] (./ecoli.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+] (./ecoli.aux) ) 
 Here is how much of TeX's memory you used:
- 2949 strings out of 493315
- 45305 string characters out of 6137905
- 117498 words of memory out of 5000000
- 6367 multiletter control sequences out of 15000+600000
- 46155 words of font info for 82 fonts, out of 8000000 for 9000
+ 3762 strings out of 493315
+ 60432 string characters out of 6137905
+ 131860 words of memory out of 5000000
+ 7160 multiletter control sequences out of 15000+600000
+ 43156 words of font info for 77 fonts, out of 8000000 for 9000
  960 hyphenation exceptions out of 8191
- 38i,11n,23p,1562b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
-xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
-live/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texli
-ve/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive
-/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2
-013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/201
-3/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2013/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013/te
-xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013/texmf-dist/f
-onts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type
-1/urw/times/utmr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/time
-s/utmri8a.pfb>
-Output written on ecoli.pdf (4 pages, 2185409 bytes).
+ 38i,11n,38p,2054b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.en
+c}</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></
+usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
+r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
+local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
+cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local
+/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/te
+xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
+live/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texli
+ve/2013/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013/te
+xmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2013/texmf-dist/
+fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type
+1/urw/times/utmri8a.pfb>
+Output written on ecoli.pdf (9 pages, 14643257 bytes).
 PDF statistics:
- 75 PDF objects out of 1000 (max. 8388607)
- 48 compressed objects within 1 object stream
+ 127 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 

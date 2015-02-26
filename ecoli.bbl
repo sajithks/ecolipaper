@@ -23,7 +23,7 @@
 
 \bibitem{elowitzstochastic2002}
 M.~B. Elowitz, A.~J. Levine, E.~D. Siggia, and P.~S. Swain, ``Stochastic gene
-  expression in a single cell,'' \emph{Science}, vol. 297, p. 1183–1186,
+  expression in a single cell,'' \emph{Science}, vol. 297, pp. 1183--1186,
   2002.
 
 \bibitem{yuichiquantify2010}
@@ -35,6 +35,11 @@ Y.~Taniguchi, P.~J. Choi, G.~Li, H.~Chen, M.~Babu, J.~Hearn, A.~Emili, and
 \bibitem{qiangmicroscope2008}
 Q.~Wu, F.~Merchant, and K.~Castleman, \emph{Microscope Image Processing}.\hskip
   1em plus 0.5em minus 0.4em\relax Massachusetts: Academic Press, 2008.
+
+\bibitem{walldenstudying2011}
+M.~Wallden and J.Elf, ``Studying transcriptional interaction in single cells at
+  sufficient resolution,'' \emph{Current Opinion in Biotechnology}, vol.~22,
+  pp. 81--86, 2011.
 
 \bibitem{sliusarenkohigh2011}
 O.~Sliusarenko, J.~Heinritz, T.~Emonet, and C.~Jacobs-Wagner,
@@ -73,7 +78,7 @@ O.~Dzyubachyk, W.~A. van Cappellen, J.~Essers, W.~J. Niessen, and E.~Meijering,
 R.~Bise, Z.~Yin, and T.~Kanade, ``Reliable cell tracking by global data
   association,'' in \emph{Proceedings of IEEE International Symposium on
   Biomedical Imaging: From Nano to Macro}.\hskip 1em plus 0.5em minus
-  0.4em\relax IEEE, 2011, p. 1004–1010.
+  0.4em\relax IEEE, 2011, pp. 1004--1010.
 
 \bibitem{jugoptimal2014}
 F.~Jug, T.~Pietzsch, D.~Kainmüller, J.~Funke, M.~Kaiser, E.~van Nimwegen,
@@ -93,7 +98,7 @@ G.~Ullman, M.~Wallden, E.~G. Marklund, A.~Mahmutovic, I.~Razinkov, and J.~Elf,
   ``High-throughput gene expression analysis at the level of single proteins
   using a microfluidic turbidostat and automated cell tracking,''
   \emph{Philosophical Transactions of the Royal Society B: Biological
-  Sciences}, vol. 368, p. 20120025, 2012.
+  Sciences}, vol. 368, pp. 1--8, 2012.
 
 \bibitem{hammarlac2012}
 P.~Hammar, P.~Leroy, A.~Mahmutovic, E.~Marklund, O.~G. Berg, and J.~Elf, ``The
@@ -117,5 +122,27 @@ C.~Woodford and C.~Philips, \emph{Numerical methods with worked examples:
 W.~Burger and M.~J. Burge, \emph{Principles of digital image processing: Core
   algorithms}.\hskip 1em plus 0.5em minus 0.4em\relax New York:
   Springer-Verlag, 2009.
+
+\bibitem{jonesscipy2001}
+\BIBentryALTinterwordspacing
+E.~Jones, E.~Oliphant, and e.~a. P.~Peterson. (2001) Scipy: Open source
+  scientific tools for python. [Online]. Available: \url{http://www.scipy.org/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{weissteinfull}
+\BIBentryALTinterwordspacing
+W.~Eric. (2014) Full width at half maximum. [Online]. Available:
+  \url{http://mathworld.wolfram.com/FullWidthatHalfMaximum.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{marquezmorphological2014}
+P.~Marquez-Neila, L.~Baumela, and L.~Alvarez, ``A morphological approach to
+  curvature-based evolution of curves and surfaces,'' \emph{IEEE Trans. Pattern
+  Anal. Mach. Intell.}, vol.~36, pp. 2--17, 2014.
+
+\bibitem{martinrandom1981}
+M.~A. Fischler and R.~C. Bolles, ``Random sample consensus: A paradigm for
+  model fitting with applications to image analysis and automated
+  cartography,'' \emph{Comm. of the ACM}, vol.~24, pp. 381--395, 1981.
 
 \end{thebibliography}

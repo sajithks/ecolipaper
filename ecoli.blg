@@ -8,17 +8,17 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: sample.bib
-You're missing a field name---line 222 of file sample.bib
+You're missing a field name---line 232 of file sample.bib
  :   
  :   %author = {B. Bleak and B. Bonsai},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 271 of file sample.bib
+You're missing a field name---line 281 of file sample.bib
  : 
  : %  author = {A. Uthor and B. Rutus},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 280 of file sample.bib
+You're missing a field name---line 290 of file sample.bib
  : 
  : %  author = {A. K. Jain},
 (Error may have been on previous line)
@@ -34,45 +34,45 @@ Too many commas in name 1 of "M. Jorge Cardoso, Ivor Simpson, Tal Arbel, Doina P
 while executing---line 2411 of file IEEEtran.bst
 
 Done.
-You've used 18 entries,
+You've used 23 entries,
             4024 wiz_defined-function locations,
-            914 strings with 10638 characters,
-and the built_in function-call counts, 12767 in all, are:
-= -- 1026
-> -- 360
-< -- 68
-+ -- 187
-- -- 75
-* -- 579
-:= -- 1887
-add.period$ -- 38
-call.type$ -- 18
-change.case$ -- 15
-chr.to.int$ -- 135
-cite$ -- 18
-duplicate$ -- 981
-empty$ -- 1061
-format.name$ -- 90
-if$ -- 2987
+            942 strings with 11400 characters,
+and the built_in function-call counts, 16195 in all, are:
+= -- 1272
+> -- 445
+< -- 111
++ -- 240
+- -- 86
+* -- 753
+:= -- 2438
+add.period$ -- 48
+call.type$ -- 23
+change.case$ -- 20
+chr.to.int$ -- 246
+cite$ -- 23
+duplicate$ -- 1190
+empty$ -- 1332
+format.name$ -- 105
+if$ -- 3750
 int.to.chr$ -- 0
-int.to.str$ -- 18
-missing$ -- 177
-newline$ -- 77
-num.names$ -- 20
-pop$ -- 444
+int.to.str$ -- 23
+missing$ -- 218
+newline$ -- 96
+num.names$ -- 25
+pop$ -- 543
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1031
+skip$ -- 1262
 stack$ -- 0
-substring$ -- 414
-swap$ -- 761
-text.length$ -- 23
+substring$ -- 615
+swap$ -- 945
+text.length$ -- 29
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 18
+type$ -- 23
 warning$ -- 0
-while$ -- 45
-width$ -- 20
-write$ -- 186
+while$ -- 65
+width$ -- 25
+write$ -- 236
 (There were 6 error messages)
