@@ -376,14 +376,14 @@
 % was not built to handle multiple paragraphs
 %
 
-\author{Sajith~Kecheril~Sadanandan,
-        Petter~Ranefall,
+\author{Sajith~Kecheril~Sadanandan*,
+		\"Ozden~Baltekin,        
         Klas~E.~G.~Magnusson,~\IEEEmembership{Student member,~IEEE, }% <-this % stops a space
 		Alexis~Baucharin,
-		\"Ozden~Baltekin,
+		Petter~Ranefall,
 		Joakim~Jald\'en,~\IEEEmembership{Senior member,~IEEE,}
 		Johan~Elf,
-		Carolina~W\"ahlby
+		Carolina~W\"ahlby,~\IEEEmembership{Senior member,~IEEE,}
 \thanks{S. K. Sadanandan, P.~Ranefall and C.~W\"ahlby  are with the Department
 of Information Technology, Uppsala University, Sweden and SciLifeLab, Sweden. C.~W\"ahlby is also with Broad Institute of Harvard and MIT, Cambridge, MA, USA.
 e-mail: sajith.ks@it.uu.se}% <-this % stops a space
@@ -446,7 +446,7 @@ e-mail: sajith.ks@it.uu.se}% <-this % stops a space
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-Genetically identical cell express different amounts of their genes and respond differently to change in their environment.  Large-scale microscopy-based experiments are needed to characterize the dynamics of such cell-to-cell variability as well as the phenotypic diversity in response to perturbations in growth conditions. The rich data from image-based experiments requires robust and efficient analysis. In this work, we have developed tools to analyze bacterial cells growing in monolayers in a microfluidic device. Individual cells are identified using a novel curvature based approach and tracked over time for several generations. The resulting tracks are thereafter assessed and filtered based on track quality for subsequent analysis of bacterial growth rates. The proposed method performs better than the state-of-the-art methods for segmenting phase contrast and fluorescent images, and we show a 10-fold increase in analysis speed.
+Genetically identical cells express their genes at different levels and respond differently to changes in their environment.  Large-scale microscopy-based experiments are needed to characterize the dynamics of such cell-to-cell variability as well as the phenotypic diversity in response to perturbations in growth conditions. The rich data from image-based experiments requires robust and efficient analysis. In this work, we have developed tools to analyze bacterial cells growing in monolayers in a microfluidic device. Individual cells are identified using a novel curvature based approach and tracked over time for several generations. The resulting tracks are thereafter assessed and filtered based on track quality for subsequent analysis of bacterial growth rates. The proposed method performs better than the state-of-the-art methods for segmenting phase contrast and fluorescent images, and we show a 10-fold increase in analysis speed.
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -489,15 +489,15 @@ E. coli, segmentation, time-lapse, microscopy, tracking.
 % and "HIS" in caps to complete the first word.
 \IEEEPARstart{L}{ive} cell experiments pave the way to understand the complex biological functions of living organisms. Many live cell experiments require monitoring of cells under different conditions over several generations. Isogenic cells display cell-to-cell variability even when grown under similar conditions \cite{elowitzstochastic2002}. To study the origin and consequences of such variation it is necessary to monitor many individual cells for extended periods of time to reach statistically testable conclusions \cite{yuichiquantify2010}. Time-lapse experiments usually generate large quantities of data, which become extremely difficult for human observers to evaluate in an unbiased way \cite{qiangmicroscope2008}. Thus, automated systems are necessary to analyze such datasets in order to reach robust and reproducible results. 
 
-Time-lapse imaging of growing bacterial cells are important both to answer fundamental biological questions related to the bacterial cell cycle as well as to study response to changes in growth condition due to changes in nutrients or antibiotics \cite{walldenstudying2011}. Based on the growth conditions and imaging modalities, various automated image segmentation and tracking packages were developed. For example \textit{MicrobeTracker} \cite {sliusarenkohigh2011} was designed to segment phase contrast images and detect fluorescent spots in a parallel fluorescent channel in bacterial cells grown isolated or in micro-colonies on agarose pads. \textit{Schnitzcells} \cite{youngmeasuring2012} was specifically designed to analyze fluorescent time-lapse images of \textit{E. coli} grown on agarose, and \textit{MAMLE} \cite {chowdhurycell2013} was also designed to analyze \textit{E. coli} from phase contrast and fluorescent images.
+Time-lapse imaging of growing bacterial cells are important both to answer fundamental biological questions related to the bacterial cell cycle as well as to study response to changes in growth condition due to changes in nutrients or antibiotics \cite{walldenstudying2011}. Based on the growth conditions and imaging modalities, various automated image segmentation and tracking packages were developed. For example \textit{MicrobeTracker} \cite {sliusarenkohigh2011} was designed to segment phase contrast images and detect fluorescent spots in a parallel fluorescent channel in bacterial cells grown isolated or in micro-colonies on agarose pads. \textit{Schnitzcells} \cite{youngmeasuring2012} was specifically designed to analyze fluorescent time-lapse images of \textit{E. coli} grown on agarose, and \textit{MAMLE} \cite {chowdhurycell2013} was designed to analyze \textit{E. coli} from phase contrast and fluorescent images.
 
 Most image segmentation methods rely on raw pixel intensities to get an initial segmentation result, and further refined segmentation depends on this initial segmentation. \textit{MicrobeTracker} finds an initial segmentation using Otsu's thresholding method \cite {otsuthreshold1979} followed by edge detection and watershed segmentation. In the final step, active contours are applied to refine object boundaries. \textit{MicrobeTracker} needs manual correction of the first frame to get satisfactory segmentation results for time-lapse images. It is difficult to analyze large image sequences in \textit{MicrobeTracker} due to its inherent memory problems, and it is often necessary to modify the code for practical applications. \textit{MAMLE} uses range filtering to find an initial segmentation result, followed by multi-scale edge detection and a maximum likelihood classification to correct over- and under- segmentation. In \textit{Schnitzcells}, initial segmentation is achieved by edge detection followed by post processing to correct segmentation errors. 
 
-Phase contrast images of \textit{E. coli} exhibit high-intensity regions inside cellular regions comparable to, or even brighter than, regions between cells. Relying on raw intensity therefore leads to over- and under-segmentation at the same time. The problem becomes amplified when trying to track cells over time. Even a $1\%$ error in detection of cells in every frame renders the cell lineage useless for further analysis if many cells are tracked over a long time.
+Phase contrast images of \textit{E. coli} exhibit high-intensity regions inside cellular regions comparable to, or even brighter than, regions between cells. Relying on raw intensity therefore leads to over- and under-segmentation at the same time. The problem is amplified when trying to track cells over time. Even a $1\%$ error in detection of cells in every frame renders a cell lineage useless for further analysis if many cells are tracked over a long time.
 
-Previously published cell tracking algorithms rely on model evolution, where a model of the cell is evolved over time using techniques such as active contour models \cite {zimmersegmentation2002} or level sets \cite {dzyubachykadvanced2010}, and tracking by detection \cite {bisereliable2011}. Tracking by detection involves two stages; segmentation and tracking. Sometimes both these steps are combined together to get final tracking result \cite {jugoptimal2014}. 
+Previously published cell tracking algorithms rely on model evolution, where a model of the cell is evolved over time using techniques such as active contour models \cite {zimmersegmentation2002} or level sets \cite {dzyubachykadvanced2010}, and tracking by detection \cite {bisereliable2011}. Tracking by detection involves two stages; segmentation and tracking. Sometimes both these steps are combined together to get a final tracking result \cite {jugoptimal2014}. 
 
-In this work, we use tracking by detection, i.e., separate the segmentation and tracking problems and solve them separately, followed by a quality control and refinement step where some of the segmentation and tracking errors are corrected. Cell segmentation is done using our novel Curvature Based Approach, hereafter called as CBA, and tracking is done using a state-of-the-art tracking algorithm \cite {magnussonglobal2014}. In the following sections we present our segmentation methodology and compare it with that of \textit{MicrobeTracker} and \textit{MAMLE} on phase contrast as well as fluorescence images, from our own and previously published experiments. After segmentation, we track the cells through the time-lapse sequence and then perform post tracking segmentation correction to get a final segmentation result. Finally, we show how the combined segmentation and tracking approach can be applied to quantify differences in cell growth rate under different experimental conditions.
+In this work, we use tracking by detection, i.e., separate the segmentation and tracking problems and solve them separately, followed by a quality control and refinement step where some of the segmentation and tracking errors are corrected. Cell segmentation is done using our novel Curvature Based Approach, hereafter called as CBA, and tracking is done using a state-of-the-art tracking algorithm \cite {magnussonglobal2014}. In the following sections we present our segmentation methodology and compare it with that of \textit{MicrobeTracker} and \textit{MAMLE} on phase contrast as well as fluorescence images, from our own and previously published experiments. After segmentation, we track the cells through the time-lapse sequence and perform post tracking segmentation correction to get a final segmentation result. Finally, we show how the combined segmentation and tracking approach can be applied to quantify differences in cell growth rate under different experimental conditions.
 
 \section{Methodology}
 \subsection{Image Acquisition}
@@ -509,13 +509,13 @@ The bacterial cell colonies in our own experiments were grown on a specially des
 The input phase contrast images are of size $1360 \times 1024$ pixels and contain the cell colony as well as some regions of the microfluidic device. We aligned the image sequences based on image cross correlation to account for the stage repositioning inaccuracy that occurred when cycling though different traps during the image acquisition process. The aligned images were manually cropped to the cellular region. Since the stack was aligned, manual selection on the first frame was enough to crop the entire image stack.
 
 \subsection{Curvature Based Contrast Enhancement }
-In the input phase contrast images, the \textit{E. coli} cells appear as dark rod-shaped objects on a brighter background as shown in figure \ref{fig:contrastenhance}. The \textit{E. coli} colony is tightly packed so that the intensity values between the cells are often similar to those inside the cells, and it is common to see high intensity regions inside cells, which implies that any purely intensity based approach for segmentation will result in erroneous output. However, we have observed that there is a general intensity variation occurring between the cells. To detect these regions of intensity variation, we used the separation of principal curvature of the intensity surface \cite {willmoreintroduction1959}. The regions were thereafter separated based on the minimal curvature as described below. 
+In the input phase contrast images, the \textit{E. coli} cells appear as dark rod-shaped objects on a brighter background. The \textit{E. coli} colony is tightly packed so that the intensity values between the cells are often similar to those inside the cells, and it is common to see high intensity regions inside cells, which implies that any purely intensity based approach for segmentation will result in erroneous output. However, we have observed that there is a general intensity variation occurring between the cells. To detect these regions of intensity variation, we used the separation of principal curvature of the intensity surface \cite {willmoreintroduction1959}. The regions were thereafter separated based on the minimal curvature as described below. 
 
 The curvature was found using techniques from differential geometry \cite  {willmoreintroduction1959}. Consider a 1D case, where \textit{r} is a curve as shown in figure \ref{fig:curve} and \textit{p} and \textit{q} are two points on the curve. We know that the gradient of the curve with respect to the arc length gives the tangent, \textit{t}, at that point, i.e., $t = r'$. The rate of change of tangent direction as we move along the curve is the curvature of the curve, i.e., $t' = kn$, where $n$ is the unit normal vector to the curve that is perpendicular to the tangent and $k$ is the curvature. So we have $r'' = kn$. This shows that the curvature at a point is the second derivative of the curve at that point.  The sign of the curvature is determined by whether the slope is increasing or decreasing. Here we can see that it is negative in the maximum point and positive in the minimum point as shown by $k_p$ and $k_q$ (arrow pointing upward as positive and arrow pointing downward as negative).
 \begin{figure}[t ]
 	\begin{center}
 		\includegraphics[width=7cm]{fig1cuve.png}
-		\caption{$k_p$ is the curvature at point \textit{p} with negative value and $k_q$ is the curvature at point \textit{q} with positive value for the curve \textbf{r}}
+		\caption{Principal curvature estimation: $k_p$ is the curvature at point \textit{p} with negative value and $k_q$ is the curvature at point \textit{q} with positive value for the curve \textbf{r}.}
 		\label{fig:curve}
 	\end{center}    
 \end{figure}
@@ -524,10 +524,15 @@ We extended the same idea to the 2D case. Consider a gray scale image as a surfa
 
 A particular point on the image surface has an infinite number of curves passing through it. Out of all these curves there are two curves that are particularly interesting. They are the curve with maximum curvature and the curve with minimum curvature, which are orthogonal to each other. These curvatures are equal to the eigenvalues of the Hessian matrix \cite {thorpeelementary1979}. The Hessian is the second derivative matrix of the image, calculated for every pixels, which is created as 
 
-$H = \begin{bmatrix}
-I_{xx} & I_{xy} \\
-I_{xy} & I_{yy}
-\end{bmatrix}$
+\begin{center}
+	$H = \begin{bmatrix}
+	I_{xx} & I_{xy} \\
+	I_{xy} & I_{yy}
+	\end{bmatrix}$
+	
+\end{center}
+
+
 where $I_{xx}$ and $I_{yy}$ are the $2^{nd}$ derivatives of the image taken in the $x$- and $y$-directions, and $I_{xy}$ is the derivative of the image taken first in the $x$-direction and then in the $y$-direction, using discrete approximations \cite{woodfordnumerical2012}. The eigenvalues can be calculated as follows 
 
 
@@ -545,14 +550,14 @@ Here, $k_1$ and $k_2$ are the principal curvatures with $k_1 < k_2$.  In phase c
 			 \includegraphics[height=3cm]{combineplots.png} &	\\
 			 c)&
 		\end{tabular}
-		\caption{a) Original input image, b) curvature based contrast enhanced image and c) plot showing pixel values from the same row from a (red line), and b (blue line). Note that the plotted pixel values in c are inverted for display.}
+		\caption{Curvature-based contrast enhancement: a) Original input image, b) Curvature based contrast enhanced image and c) Plot showing pixel values from the same row from (a) (red line), and (b) (blue line). Note that the plotted pixel values from (a) in (c) are inverted for display.}
 		\label{fig:contrastenhance}
 	\end{center}
 \end{figure}
 
 
 \subsection{Object Segmentation}
-We used the presented curvature-based enhancement step to enhance the contrast in the images. Next, we segmented out the cells using a repeated thresholding approach. The contrast-enhanced image is an image with floating point values. In order to make the threshold computation easier, we normalized the image and quantized it to $256$ intensity levels . A single threshold value was not sufficient to separate all individual cells, and watershed segmentation resulted in ambiguities in the positioning of the edges of the cells. We therefore used multiple thresholds and prior knowledge about the cell area and the cell shape, in the form of major and minor axes lengths,  to filter out the cells from background regions. 
+We used the presented curvature-based enhancement step to enhance the contrast in the images. Next, we segmented out the cells using a repeated thresholding approach. The contrast-enhanced image is an image with floating point values. In order to make the threshold computation easier, we normalized the image and quantized it to $256$ intensity levels. A single threshold value was not sufficient to separate all individual cells, and watershed segmentation resulted in ambiguities in the positioning of the edges of the cells. We therefore used multiple thresholds and prior knowledge about the cell area and the cell shape, in the form of major and minor axes lengths,  to filter out the cells from background regions. 
 
 For each threshold level, the image was labeled and each object fitted with an ellipse. The ellipse parameters are found using moments \cite{burgerprinciples2009} as follows. We create a matrix $M$ such that,
  \begin{center}
@@ -599,21 +604,21 @@ Ellipse area is found as
 
 From a computational point of view it is time-consuming to apply a threshold at all the 256 intensity levels and analyze the size and shape of every binary object present in the image. We have already seen that the cellular regions exhibit higher intensity values and edges between cells exhibit lower intensity values on the contrast-enhanced image. Thus we made the assumption that the histogram is bimodal, with the largest peak representing object and background pixels, while the smaller peak represents edges. We therefore started our repeated thresholding at the intensity value at the local minimum of the histogram (assuming this is well below the intensity of the cells), and set the ending threshold as the intensity of the largest peak. These values may change depending on the dataset, but proved robust on the four different datasets evaluated here.
 
-For each threshold, weight values were assigned to every object in the range$ [0, 1]$, resulting in a stack of segmentation results. We reduced the stack by a maximum projection, i.e., find the maximum value for every $x$, $y$ co-ordinate through the stack found, thus keeping the per-object segmentation result with the highest weight. This projection image was thresholded and holes were filled to obtain the final object segments. We found the threshold experimentally and set it to $0.75$. All objects below this threshold were considered to be image background. The remaining objects were subjected to further intensity based filtering to remove artifacts and smoothing to remove sharp corners as described below. 
+For each threshold, weight values were assigned to every object in the range $[0, 1]$, resulting in a stack of segmentation results. We reduced the stack by a maximum projection, i.e., find the maximum value for every $(x,~y)$ coordinate through the stack found, thus keeping the per-object segmentation result with the highest weight. This projection image was thresholded and holes were filled to obtain the final object segments. We found the threshold experimentally and set it to $0.75$. All objects below this threshold were considered to be image background. The remaining objects were subjected to further intensity based filtering to remove artifacts and smoothing to remove sharp corners as described below. 
 
 \subsection{Object Filtering}
 
-Our object filtering is based on the assumption that the intensity distribution of the cells follows a Gaussian distribution, and that outliers are debris. Approximations of the mean and the  standard deviation of the distribution were computed as follows. All the intensity values for the particular image are normalized. From the list of normalized intensities, the histogram of intensity is found and interpolated using spline interpolation \cite {jonesscipy2001}. On the interpolated distribution, we find the position of the peak, use it as mean, and the half maximum of the peak on both sides of the peak using linear search. We find the full width at half maximum (FWHM) by the difference of the right and left half maximum. Then the standard deviation is thereafter estimated by \cite {weissteinfull}.  
+Our object filtering is based on the assumption that the intensity distribution of the cells follows a Gaussian distribution, and that outliers are debris. Approximations of the mean and the  standard deviation of the distribution were computed as follows. All the intensity values for the particular image are normalized. From the list of normalized intensities, the histogram of intensity is found and interpolated using spline interpolation \cite {jonesscipy2001}. On the interpolated distribution, we find the position of the peak, use it as mean, and the half maximum of the peak on both sides of the peak using linear search. We find the full width at half maximum (FWHM) by the difference of the right and left half maximum. We estimated the standard deviation  \cite {weissteinfull} as follows  
 
 \begin{equation}
 \textit{Estimated standard deviation} = \frac{FWHM}{2 \sqrt{2\log(2)}}
 \end{equation}
 
-We introduced a threshold, $3$ standard deviations above the mean. All objects that had values less than this threshold were considered for further processing. We performed the intensity based filtering on all images in the sequence separately to compensate for variations in image intensity.
+We introduced a threshold, $4$ standard deviations above the mean. All objects that had values less than this threshold were considered for further processing. We performed the intensity based filtering on all images in the sequence separately to compensate for variations in image intensity.
 
 \subsection{Object Smoothing}
 
-Object smoothing is required only for such applications were the segment accuracy is more important than speed of execution. The output objects from the filtered segmentation sometimes have sharp corners. To smooth the borders we applied morphological geodesic active contours \cite {marquezmorphological2014}, which is a fast level set based contour evolution method. In this method, level set evolution is done using dilation and erosion of binary images. We set the parameters as shown in Table \ref{tab:paramsnake} and used the intensity normalized contrast-enhanced image, i.e., the low eigenvalue image, as reference image for the level set evolution. All the parameters have same meaning as mentioned in \cite {marquezmorphological2014}.  Each segment was smoothed individually to avoid potential merging of segments. 
+Object smoothing is required only for such applications were the segment accuracy is more important than speed of execution. The output objects from the filtered segmentation sometimes have sharp corners. To smooth the borders we applied morphological geodesic active contours \cite {marquezmorphological2014}, which is a fast level set based contour evolution method. In this method, level set evolution is done using dilation and erosion of binary images. We set the parameters as shown in Table \ref{tab:paramsnake} and used the intensity normalized contrast-enhanced image, i.e., the low eigenvalue image, as reference image for the level set evolution. All the parameters have the same meaning as mentioned in \cite {marquezmorphological2014}.  Each segment was smoothed individually to avoid potential merging of segments. 
 \begin{table}[t]
 	% increase table row spacing, adjust to taste
 
@@ -642,7 +647,7 @@ Object smoothing is required only for such applications were the segment accurac
 
 \subsection{Segmentation Evaluation Approach}
 
-We evaluated the segmentation performance using recall, precision and the harmonic mean of the two, referred to as the F-score on a per object basis. These were found as follows\begin{equation*}
+We evaluated the segmentation performance on a per-cell basis using recall, precision and the harmonic mean of the two, referred to as the F-score on a per object basis. These were found as follows\begin{equation*}
 Recall = \frac{TP}{TP + FN}
 \end{equation*}
 
@@ -653,11 +658,11 @@ Precision = \frac{TP}{TP + FP}
 \begin{equation*}
 F-score = \frac{2\times Precision \times Recall}{Precision + Recall}
 \end{equation*}
-where $TP$ is true positive, $FP$ is false negative and $FN$ is false negative.
+where $TP$ is true positive pixels, $FP$ is false positive pixels and $FN$ is false negative pixels.
 
 To have a fair comparison of the evaluated methods, all objects touching the image boundary were removed. The exact positioning of the segmentation outlines may vary between different segmentation approaches, and it is not straightforward to say if a 'tight' or a more 'loose' fit of an outline is more correct. This may introduce bias to the quantification of precision and recall. We therefore adjusted the manually curated ground truth using simple dilations or erosions to make the area distribution of the cells in the ground truth as similar as possible to that of the output segmentation masks. In the label-based dilation, a square structuring element of size $3 \times 3$ was considered and the center pixel was assigned the label with maximum occurrence, excluding the background pixels. 
 
-After this adjustment of the ground truth image an object based segmentation evaluation was done. To evaluate the segmentation result per object, we created a list entry for every object. We thereafter considered each segment from the ground truth and found the segment with maximum overlap in the segmentation result from the corresponding algorithm and marked the corresponding entry in the list as visited. This was done for all the segments in the ground truth image. The segments that were not associated with any detected segment were considered as false negative cells, and similarly, detected segments that failed to get associated to any of the segments from the ground truth image were considered as false positives. This ensured that we account for missing as well as false detections. For every segment in the ground truth we find pixels that overlap with the associated segment from the respective algorithm and consider those pixels as true positive. Pixels in the ground truth segment that are not overlapping are considered as false negatives and similarly those not overlapping with the segmentation result is considered as false positive. We repeat this process on all the segmentation results. Then the histogram of the performance metrics were created at $100$ bin levels as shown in figure \ref{fig:fscorecumul} and the corresponding area distribution is shown in figure \ref{fig:areadistribution}.
+After this adjustment of the ground truth image an object based segmentation evaluation was done. To evaluate the segmentation result per object, we created a list entry for every object. We thereafter considered each segment from the ground truth and found the segment with maximum overlap in the segmentation result from the corresponding algorithm and marked the corresponding entry in the list as visited. For every segment in the ground truth we find pixels that overlap with the associated segment from the respective algorithm and consider those pixels as true positive. Pixels in the ground truth segment that are not overlapping are considered as false negatives and similarly those not overlapping with the segmentation result are considered as false positives. This was done for all the segments in the ground truth image. The ground truth segments that were not associated with any detected segment were considered as false negatives, and similarly, detected segments that failed to get associated to any of the segments from the ground truth image were considered as false positive cells. This ensured that we account for missing cells as well as false detections. We repeat this process on all the segmentation results and histogram the performance metrics at $100$ bin levels.
 
 
 \subsection{Cell Tracking}
@@ -715,20 +720,21 @@ After the final quality control, some of the high-quality tracks may still conta
 
 \begin{figure}[h]
 	\begin{center}
-		\begin{tabular}{cc}
+		\begin{tabular}{c}
 			%\hline
-			\includegraphics[width=4cm]{correcttrack.png}&\includegraphics[width=4cm]{singleerrtrack.png}
-			\\
-			a) & b)
+			\includegraphics[width=8cm]{correcttrack.png}\\
+			a)\\
+			\includegraphics[width=8cm]{singleerrtrack.png}\\
+			b)
 		\end{tabular}
-		\caption{a) track showing cell growth without any error b) track with single frame error and corresponding corrected frame.}\label{fig:track}
+		\caption{Post-tracking segmentation correction: a) Track showing cell growth without any error and b) Track with single frame error and corresponding corrected frame.}\label{fig:track}
 	\end{center}
 \end{figure}
 
 
 \section{Results and Discussion}
 \subsection{Segmentation Results}
-We compared the segmentation results of our Curvature Based Approach, referred to as CBA, with those of \textit{MicrobeTracker} \cite {sliusarenkohigh2011} and \textit{MAMLE} \cite {chowdhurycell2013}.  As it has already been shown that \textit{MAMLE} outperforms \textit{Schnitzcells}itzcells \cite { youngmeasuring2012} under many circumstances, we did not compare against this approach. We evaluated the segmentation performance on three \textit{E. coli} phase contrast images: one from the \textit{MicrobeTracker} example data, one from \textit{Schnitzcells} (which was also used by the authors of \textit{MAMLE}), and one from our own dataset. The \textit{MicrobeTracker} and  \textit{Schnitzcells} examples are obtained for \textit{E. coli} cells growing as largely isolated cells or micro-colonies on agarose pads whereas our dataset shows densely growing cells in PDMS microfluidics. It is important to note that neither \textit{MicrobeTracker} nor \textit{Schnitzcells} was developed to handle data of the type we have in our microfluidics experiments and that relative performance can vary depending on specific imaging conditions.  We also evaluated the performance on one fluorescent image from our own dataset. Here, we inverted the fluorescence microscopy images and then processed them in the same way as the phase contrast images. We manually created ground truth for all the images. All raw images and their corresponding ground truths are shown in the two top rows of figure \ref{fig:segcompare}. Our proposed method outputs the segmentation result as a binary image while the \textit{MicrobeTracker} output is in the form of boundary coordinates. Therefore, special care was needed when performing the evaluation. The contours of two nearby cells detected by \textit{MicrobeTracker} overlapped in some cases, and to avoid considering the overlapping regions as new segments we evaluated one contour at a time, converting each contour to a binary image by dilation followed by hole filling and erosion.
+We compared the segmentation results of our Curvature Based Approach, referred to as CBA, with those of \textit{MicrobeTracker} \cite {sliusarenkohigh2011} and \textit{MAMLE} \cite {chowdhurycell2013}.  As it has already been shown that \textit{MAMLE} outperforms \textit{Schnitzcells} \cite { youngmeasuring2012} under many circumstances, we did not compare against this approach. We evaluated the segmentation performance on three \textit{E. coli} phase contrast images: one from the \textit{MicrobeTracker} example data, one from \textit{Schnitzcells} (which was also used by the authors of \textit{MAMLE}), and one from our own dataset. The \textit{MicrobeTracker} and  \textit{Schnitzcells} examples are obtained for \textit{E. coli} cells growing as largely isolated cells or micro-colonies on agarose pads whereas our dataset shows densely growing cells in PDMS microfluidics. It is important to note that neither \textit{MicrobeTracker} nor \textit{Schnitzcells} was developed to handle data of the type we have in our microfluidics experiments and that relative performance can vary depending on specific imaging conditions.  We also evaluated the performance on one fluorescent image from our own dataset. Here, we inverted the fluorescence microscopy images and then processed them in the same way as the phase contrast images. We manually created ground truth for all the images. All raw images and their corresponding ground truths are shown in the two top rows of figure \ref{fig:segcompare}. Our proposed method outputs the segmentation result as a binary image while the \textit{MicrobeTracker} output is in the form of boundary coordinates. Therefore, special care was needed when performing the evaluation. The contours of two nearby cells detected by \textit{MicrobeTracker} overlapped in some cases, and to avoid considering the overlapping regions as new segments we evaluated one contour at a time, converting each contour to a binary image by dilation followed by hole filling and erosion.
 
 We also wanted to evaluate the improvement in performance of CBA with and without intensity filtering and contour smoothing, resulting in a total of five algorithms; 1) CBA, 2) CBA including intensity based filtering, 3) CBA including intensity filtering and smoothing, 4) \textit{MicrobeTracker}, and 5) \textit{MAMLE}. figure \ref{fig:segcompare} shows output from each of the approaches, and figure \ref{fig:segcomparezoom} shows zoomed-in versions of the same images.
 
@@ -737,7 +743,7 @@ We also wanted to evaluate the improvement in performance of CBA with and withou
 		
 		\includegraphics[width=7.5cm]{fig3edrgb.png}			
 		
-		\caption{phase data $1$ is from the \textit{MicrobeTracker} dataset, phase data $2$ from \textit{Schnitzcells} dataset, phase data $3$ and fluorescent data from our dataset. Phase data 1 and 2 are from experiments on agarose pads whereas phase data 3 and fluorescent data are from a growth medium in a PDMS device.}\label{fig:segcompare}
+		\caption{Segmentation results: phase data $1$ is from the \textit{MicrobeTracker} dataset, phase data $2$ from \textit{Schnitzcells} dataset, phase data $3$ and fluorescent data from our dataset. Phase data 1 and 2 are from experiments on agarose pads whereas phase data 3 and fluorescent data are from a growth medium in a PDMS device.}\label{fig:segcompare}
 	\end{center}
 \end{figure}
 
@@ -746,11 +752,11 @@ We also wanted to evaluate the improvement in performance of CBA with and withou
 	\begin{center}
 		
 		\includegraphics[width=7.5cm]{fig4ed.png}					
-		\caption{Zoomed in versions of selected regions from figure \ref{fig:segcompare}}\label{fig:segcomparezoom}
+		\caption{Zoomed-in versions of selected regions from figure \ref{fig:segcompare}.}\label{fig:segcomparezoom}
 	\end{center}
 \end{figure}
 
-Evaluation results are shown in figure \ref{fig:fscorecumul}. The figure \ref{fig:areadistribution} shows that the area distributions are maintained prior to evaluation of segmentation results as discussed in the methods section. To summarize the comparison of the segmentation algorithms, we tested a range of thresholds on the F-score to quantify what proportion of the cells was correctly identified at different requirements on achieved F-score. We finally set a threshold at $0.8$ for the F-score, representing a decent bacterial outline, and found the percentage of bacterial cells that have an F-score greater than $0.8$ for each tested algorithm. The results show that using CBA, $87\%$ of the cells fall above this threshold, as compared to $48\%$ of the cells when using  \textit{MicrobeTracker}, and $83\%$ when using \textit{MAMLE} on the phase contrast image from our dataset(phase data 1). For our fluorescence microscopy image (fluorescent data), the value is $87\%$ for CBA while it is $46\%$ for \textit{MicrobeTracker} and $76\%$ for \textit{MAMLE}. For the \textit{MicrobeTracker} phase contrast image (phase data 1), the values are $91\%$ for CBA while $82\%$ for \textit{MicrobeTracker} and $90\%$ for \textit{MAMLE}. For the \textit{Schnitzcells} phase contrast image (phase data 2), the values are $78\%$ for CBA, $46\%$ for \textit{MicrobeTracker} and $85\%$ for \textit{MAMLE}.
+The Figure \ref{fig:areadistribution} shows that the area distributions are maintained prior to evaluation of segmentation results as discussed in the methods section. Evaluation results are shown in Figure \ref{fig:fscorecumul}. To summarize the comparison of the segmentation algorithms, we tested a range of thresholds on the F-score to quantify what proportion of the cells was correctly identified at different requirements on achieved F-score. We finally set a threshold at $0.8$ for the F-score, representing a decent bacterial outline, and found the percentage of bacterial cells that have an F-score greater than $0.8$ for each tested algorithm. The results show that using CBA, $87\%$ of the cells fall above this threshold, as compared to $48\%$ of the cells when using  \textit{MicrobeTracker}, and $83\%$ when using \textit{MAMLE} on the phase contrast image from our dataset (phase data 1). For our fluorescence microscopy image (fluorescent data), the value is $87\%$ for CBA while it is $46\%$ for \textit{MicrobeTracker} and $76\%$ for \textit{MAMLE}. For the \textit{MicrobeTracker} phase contrast image (phase data 1), the values are $91\%$ for CBA while $82\%$ for \textit{MicrobeTracker} and $90\%$ for \textit{MAMLE}. For the \textit{Schnitzcells} phase contrast image (phase data 2), the values are $78\%$ for CBA, $46\%$ for \textit{MicrobeTracker} and $85\%$ for \textit{MAMLE}.
 
 The performance of CBA was only marginally improved when adding intensity based filtering and contour smoothing. However, the contour smoothing may be necessary for applications where exact edge positioning is crucial, e.g., when relating the position of sub-cellular signals to the cell edge.
 
@@ -762,7 +768,7 @@ The performance of CBA was only marginally improved when adding intensity based 
 		\includegraphics[width=0.45\linewidth]{phasdat3areadist.png}&\includegraphics[width=0.45\linewidth]{fluoareadist.png}\\
 		(c) & (d)
 	\end{tabular}
-	\caption{ Area distribution of segmented cells for (a) phase data 1, (b) phase data 2 (c) phase data 3 and (d) fluorescent data }
+	\caption{ Area distribution of segmented cells for a) phase data 1, b) phase data 2 c) phase data 3 and d) fluorescent data. }
 	\label{fig:areadistribution}
 	
 \end{figure}
@@ -776,7 +782,7 @@ The performance of CBA was only marginally improved when adding intensity based 
 		\includegraphics[height=3cm]{fluofscorecumul.png}\\
 		(c) & (d)
 	\end{tabular}
-	\caption{Cumulative \% of cells above the particular F-score for (a) phase data 1, (b) phase data 2 (c) phase data 3 and (d) fluorescent data }
+	\caption{Cumulative \% of cells above the particular F-score for a) phase data 1, b) phase data 2, c) phase data 3 and (d) fluorescent data }
 	\label{fig:fscorecumul}
 	
 \end{figure}
@@ -786,7 +792,7 @@ The performance of CBA was only marginally improved when adding intensity based 
 
 
 \subsection{Run Time Evaluation}
-Our algorithm, CBA, was implemented in Python as a multithreaded program. We compared the execution speed of the methods on the four datasets. The experimental results show that the execution speed depends on the number of cells present in the image. It was found that our method, CBA, is an order of magnitude faster than the state-of-the-art methods. The results show that CBA is $10$ times faster than \textit{MicrobeTracker} and $8$ times faster than \textit{MAMLE} on average. The time taken by each method on the four datasets is shown in figure \ref{fig:timing}. We performed the speed evaluation on a laptop with a 2.7GHz i7 processor and 16GB RAM running on Windows 7.
+Our algorithm, CBA, was implemented in Python as a multithreaded program. We compared the execution speed of the methods on the four datasets. The time taken by each method on the four datasets is shown in figure \ref{fig:timing}. The experimental results show that the execution speed depends on the number of cells present in the image. It was found that our method, CBA, is an order of magnitude faster than the state-of-the-art methods. The results show that CBA is $10$ times faster than \textit{MicrobeTracker} and $8$ times faster than \textit{MAMLE} on average. We performed the speed evaluation on a laptop with a 2.7GHz i7 processor and 16GB RAM running on Windows 7.
 
 \begin{figure}[h]
 	\begin{center}
@@ -797,7 +803,7 @@ Our algorithm, CBA, was implemented in Python as a multithreaded program. We com
 	\end{center}
 \end{figure}
 \subsection{Tracking Results}
-To further evaluate the usability of the segmentation results produced by our proposed method, we tested its performance on a large time-lapse experiment. We applied our segmentation algorithm to time-lapse images from a dataset comprising 500 images with approximately 250 cells per image. 500 frames correspond to 250 min in real time. Cell tracking was done using the Viterbi algorithm as described in the Methods section, and we obtain a total of 10259 tracks. The tracks were then subjected to filtering to extract candidate tracks. The track analysis stage found 1529 tracks satisfying the criteria of having cell division at the beginning and also at the end. Since we consider cell division at the start and end of the track, essentially all tracks including the first or last 30 min are discarded. Many tracks towards the beginning and the end of the sequence were excluded from further analysis. All the 1529 tracks were sorted in increasing order based on RANSAC fit error, as shown by the solid dashed line in figure \ref{fig:correcttrack} (note the logarithmic scale on the fit error). We further searched for and corrected segmentation errors in the tracks. The solid line shows the improved result, where a total of 1238 tracks fell below the 3 pixel error threshold prior to track correction, and 1274 fell below the threshold afterwards.  In frames 100 to 400 40\% of the identified cells are assigned to a track. 
+To further evaluate the usability of the segmentation results produced by our proposed method, we tested its performance on a large time-lapse experiment. We applied our segmentation algorithm to time-lapse images from a dataset comprising $500$ images with approximately $250$ cells per image. $500$ frames correspond to $250$ min in real time. Cell tracking was done using the Viterbi algorithm as described in the Methods section, and we obtain a total of $10259$ tracks. The tracks were then subjected to filtering to extract candidate tracks. The track analysis stage found $1529$ tracks satisfying the criteria of having cell division at the beginning and also at the end. Since we consider cell division at the start and end of the track, essentially all tracks including the first or last $30$ min are discarded. All the $1529$ tracks were sorted in increasing order based on RANSAC fit error, as shown by the dashed line in figure \ref{fig:correcttrack} (note the logarithmic scale on the fit error). We further searched for and corrected segmentation errors in the tracks. The solid line shows the improved result, where a total of $1238$ tracks fell below the $3$ pixel error threshold prior to track correction, and $1274$ fell below the threshold afterwards.  In frames $100$ to $400$ $40\% $ of the identified cells are assigned to a track. 
 
 \begin{figure}[h]
 	\begin{center}
@@ -809,7 +815,7 @@ To further evaluate the usability of the segmentation results produced by our pr
 \end{figure}
 
 \subsection{Comparison of Growth Rate at Different Treatments}
-The second experiment included in this work was to find the growth rate of \textit{E. coli} cells in different media. The first dataset was obtained from \textit{E. coli} cells using glycerol as medium and the second dataset was obtained using glucose as medium. We wanted to know how fast the cells grow and divide in these two media. We found that the slope of the RANSAC fitted line was 0.0120 $\pm$ 0.0021 pixels/frame in logarithmic scale (mean $\pm$ standard deviation) for cells in glucose (red) and 0.0092 $\pm$ 0.0015 pixels/frame in logarithmic scale for cells in glycerol (blue). There are some cells that grow faster in glycerol and cells that grow slower in glucose as can be seen in figure \ref{fig:growthrate}.
+The second experiment included in this work was aimed at testing if the proposed method could be used to find differences in the growth rate of \textit{E. coli} cells in different media. The first dataset was obtained from \textit{E. coli} cells using glycerol as medium and the second dataset was obtained using glucose as medium. We wanted to know how fast the cells grow and divide in these two media. We found that the growth rate measured as the slope of the RANSAC fitted line was $1.2 \times 10^{-2} \pm 2.1 \times 10^{-3}$ pixels/frame in logarithmic scale (mean $\pm$ standard deviation) for cells in glucose (red) and $9.2 \times 10^{-3} \pm 1.5 \times 10^{-3}$ pixels/frame in logarithmic scale for cells in glycerol (blue). There are some cells that grow faster in glycerol and cells that grow slower in glucose as can be seen in figure \ref{fig:growthrate}.
 
 \begin{figure}[!h]
 	\centering
@@ -819,7 +825,7 @@ The second experiment included in this work was to find the growth rate of \text
 	 \includegraphics[width=0.45\linewidth]{lineagebothed.png}&\\
 	 (c) &
 	\end{tabular}
-	\caption{(a) Change in major axis length over time for two datasets with cells in glucose (red) and glycerol (blue) (b) Histogram of slope found by RANSAC line fit for two datasets. (c) A sample lineage of  cells grown in glucose(raw data in red and RANSAC in yellow) and glycerol(raw data in blue and RANSAC in green) }
+	\caption{Comparison of growth rates: a) Change in major axis length over time for two datasets with cells in glucose (red) and glycerol (blue). b) Histogram of slope found by RANSAC line fit for two datasets. (c) A sample lineage of  cells grown in glucose(raw data in red and RANSAC in yellow) and glycerol(raw data in blue and RANSAC in green). }
 	\label{fig:growthrate}
 	
 \end{figure}
@@ -952,7 +958,7 @@ In this work, we developed a fast and robust \textit{E. coli} cell segmentation 
 \section*{Acknowledgment}
 
 
-The authors would like to thank the financial support from the Swedish Research council, grant  2012-4968 to Carolina W\"ahlby.
+The authors would like to thank the financial support from the Swedish research council, grant 2012-4968, and Swedish strategic research program, eSSENCE, to Carolina W\"ahlby.
 
 %\newpage
 % Can use something like this to put references on a page
